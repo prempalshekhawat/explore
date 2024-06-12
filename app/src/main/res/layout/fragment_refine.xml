@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.RefineFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.prempal.explore.ui.viewmodel.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/selectAvailabilityTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Select Your Availability"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/availabilitySelectionCl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/explore_search_bg"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/selectAvailabilityTv">
+
+            <Spinner
+                android:id="@+id/refineSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:popupBackground="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/addStatusTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="Add Your Status"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/availabilitySelectionCl" />
+
+        <EditText
+            android:id="@+id/statusEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/explore_search_bg"
+            android:gravity="top"
+            android:maxLength="250"
+            android:minLines="3"
+            android:padding="10dp"
+            android:textColor="@color/theme"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/addStatusTv"
+            tools:text="this is the status" />
+
+        <TextView
+            android:id="@+id/statusCountTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.statusWordCount + `/250`}"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/statusEt"
+            app:layout_constraintTop_toBottomOf="@+id/statusEt"
+            tools:text="100/250" />
+
+        <TextView
+            android:id="@+id/selectDistanceTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Select hyper Local distance"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/statusCountTv" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/distanceSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="slider_desc"
+            android:stepSize="1"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            app:labelBehavior="visible"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/selectDistanceTv"
+            app:thumbColor="@color/theme"
+            app:thumbHeight="12dp"
+            app:thumbRadius="90dp"
+            app:thumbStrokeWidth="0dp"
+            app:thumbWidth="12dp"
+            app:trackColorActive="@color/theme"
+            app:trackColorInactive="@color/light_grey"
+            app:trackHeight="2dp"
+            app:trackStopIndicatorSize="0dp" />
+
+        <TextView
+            android:id="@+id/sliderStartTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 Km"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/distanceSlider" />
+
+        <TextView
+            android:id="@+id/sliderEndingTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 Km"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@+id/distanceSlider" />
+
+        <TextView
+            android:id="@+id/selectPurposeTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="Select Purpose"
+            android:textColor="@color/theme"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/sliderStartTv" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/selectPurposeTv"
+            app:singleLine="false">
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/theme"
+            android:text="  Save &amp; Explore  "
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.025" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Explore" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/theme_main</item>
+    </style>
+
+    <style name="Theme.Explore" parent="Base.Theme.Explore" />
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="App.Slider" parent="@style/Widget.MaterialComponents.Slider">
+        <item name="labelStyle">@style/App.Tooltip</item>
+    </style>
+
+    <style name="App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Tooltip</item>
+    </style>
+
+</resources>

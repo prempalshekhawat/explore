@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="response"
+            type="com.prempal.explore.data.DummyResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profileInfoCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardCornerRadius="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/profileTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/invitetext"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    tools:text="profile name"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="@{response.profileName}"/>
+
+                <TextView
+                    android:id="@+id/invitetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileTv"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileTv"
+                    android:text="+INVITE"
+                    android:textSize="18sp"
+                    android:textColor="@color/theme"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/locationTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profileTv"
+                    app:layout_constraintEnd_toStartOf="@+id/invitetext"
+                    android:layout_marginStart="40dp"
+                    tools:text="location"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/theme_light"
+                    android:text="@{response.location}"/>
+
+                <TextView
+                    android:id="@+id/locationRadiusTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/locationTv"
+                    app:layout_constraintEnd_toStartOf="@+id/invitetext"
+                    android:layout_marginStart="40dp"
+                    tools:text="within 100 m"
+                    android:textSize="14sp"
+                    android:textColor="@color/grey"
+                    android:text="@{response.locationRadius}"/>
+
+                <ProgressBar
+                    android:id="@+id/explorePB"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="5dp"
+                    android:indeterminate="false"
+                    android:progress="@{response.profileScore}"
+                    android:progressDrawable="@drawable/custom_progressbar"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileScoreTv"
+                    app:layout_constraintEnd_toStartOf="@+id/profileScoreTv"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/locationRadiusTv"
+                    app:layout_constraintVertical_bias="0.6" />
+
+                <TextView
+                    android:id="@+id/profileScoreTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/locationRadiusTv"
+                    app:layout_constraintEnd_toStartOf="@+id/invitetext"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    tools:text="profile score - 12%"
+                    android:textSize="12sp"
+                    android:textColor="@color/theme_light"
+                    android:text="@{`Profile Score - `+response.profileScore + `%`}"/>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/purposeFb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profileScoreTv"
+                    app:purpose="@{response.purpose}"
+                    app:flexWrap="wrap"/>
+
+                <TextView
+                    android:id="@+id/profileStatusTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/purposeFb"
+                    android:layout_margin="5dp"
+                    tools:text="hello connections"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/theme_light"
+                    android:text="@{response.profileStatus}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            android:background="@color/grey"
+            app:imageUrl="@{response.imageUrl}"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/app_nav_graph"
+app:startDestination="@id/start_up_fragment">
+
+<fragment
+    android:id="@+id/explore_fragment"
+    android:name="com.prempal.explore.ui.fragments.ExploreFragment"
+    android:label="Explore"
+    tools:layout="@layout/fragment_explore">
+
+    <action
+        android:id="@+id/move_to_personal_fragment"
+        app:destination="@id/explore_personal_fragment" />
+
+    <action
+        android:id="@+id/move_to_services_fragment"
+        app:destination="@id/explore_services_fragment" />
+
+    <action
+        android:id="@+id/move_to_businesses_fragment"
+        app:destination="@id/explore_businesses_fragment" />
+
+    <action
+        android:id="@+id/move_to_startup_fragment"
+        app:destination="@id/start_up_fragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true"/>
+
+</fragment>
+
+<fragment
+    android:id="@+id/refine_fragment"
+    android:name="com.prempal.explore.ui.fragments.RefineFragment"
+    android:label="Refine"
+    tools:layout="@layout/fragment_refine">
+
+    <action
+        android:id="@+id/move_to_startup_fragment"
+        app:destination="@id/start_up_fragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true"/>
+
+</fragment>
+
+<fragment
+    android:id="@+id/explore_services_fragment"
+    android:name="com.prempal.explore.ui.fragments.ExploreServicesFragment"
+    android:label="Explore Services"
+    tools:layout="@layout/fragment_explore_services">
+
+</fragment>
+
+    <fragment
+        android:id="@+id/explore_personal_fragment"
+        android:name="com.prempal.explore.ui.fragments.ExplorePersonalFragment"
+        android:label="Explore Personal"
+        tools:layout="@layout/fragment_explore_personal">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/explore_businesses_fragment"
+        android:name="com.prempal.explore.ui.fragments.ExploreBusinessesFragment"
+        android:label="Explore Businesses"
+        tools:layout="@layout/fragment_explore_businesses">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/start_up_fragment"
+        android:name="com.prempal.explore.ui.fragments.StartUpFragment"
+        android:label="Start Up"
+        tools:layout="@layout/fragment_start_up">
+
+        <action
+            android:id="@+id/move_to_explore_fragment"
+            app:destination="@id/explore_fragment" />
+
+        <action
+            android:id="@+id/move_to_refine_fragment"
+            app:destination="@id/refine_fragment" />
+
+    </fragment>
+
+</navigation>
